@@ -6,21 +6,39 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.HBox?>
 
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml">
 
-<HBox fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml"
-      alignment="bottom_right"
-      style="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"
-      spacing="10">
+<!--    nested layouts - only way to get elements at bottom-->
+    <top>
+        <Label text="This label in the top position" alignment="center"
+               BorderPane.alignment="center"
+                style="-fx-border-color: blue; -fx-border-width: 3; -fx-border-style: dashed"/>
+    </top>
+    <bottom>
+        <HBox spacing="10" alignment="center_right">
+            <!--            fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml"-->
+            <!--          alignment="bottom_right"-->
+            <!--          style="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"-->
 
-    <padding>
-        <Insets bottom="10" right="10" />
-    </padding>
 
-    <Button text="Okay" prefWidth="100"/>
-    <Button text="Cancel" prefWidth="100"/>
-    <Button text="Help" prefWidth="100"/>
+            <padding>
+                <Insets bottom="10" right="10" />
+            </padding>
 
-</HBox>
+            <Button text="Okay" prefWidth="100"/>
+            <Button text="Cancel" prefWidth="100"/>
+            <Button text="Help" prefWidth="100"/>
+
+        </HBox>
+    </bottom>
+
+
+</BorderPane>
+
+
+
 
 
 <!--<GridPane fx:controller="sample.Controller"-->
