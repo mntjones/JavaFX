@@ -1,5 +1,6 @@
 package com.monica.todolist;
 
+import com.monica.todolist.datamodel.TodoData;
 import com.monica.todolist.datamodel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -26,23 +27,25 @@ public class Controller {
     private Label deadlineLabel;
 
     public void initialize() {
-        TodoItem item1 = new TodoItem("Mail Father's Day cards", "Send Cassie's art",
-                LocalDate.of(2020, Month.JUNE, 20));
-        TodoItem item2 = new TodoItem("Fold clothes", "Get clothes from dryer and start new load",
-                LocalDate.of(2020, Month.JUNE, 17));
-        TodoItem item3 = new TodoItem("Fill out time card", "Go to work computer and fill out",
-                LocalDate.of(2020, Month.JUNE, 27));
-        TodoItem item4 = new TodoItem("Doctor Appointment", "Meet Dr. Gonden and bring paperwork",
-                LocalDate.of(2020, Month.SEPTEMBER, 1));
-        TodoItem item5 = new TodoItem("Call Mom", "Need to discuss ongoing therapy sessions",
-                LocalDate.of(2018, Month.JANUARY, 30));
-
-        todoItems = new ArrayList<TodoItem>();
-        todoItems.add(item1);
-        todoItems.add(item2);
-        todoItems.add(item3);
-        todoItems.add(item4);
-        todoItems.add(item5);
+//        TodoItem item1 = new TodoItem("Mail Father's Day cards", "Send Cassie's art",
+//                LocalDate.of(2020, Month.JUNE, 20));
+//        TodoItem item2 = new TodoItem("Fold clothes", "Get clothes from dryer and start new load",
+//                LocalDate.of(2020, Month.JUNE, 17));
+//        TodoItem item3 = new TodoItem("Fill out time card", "Go to work computer and fill out",
+//                LocalDate.of(2020, Month.JUNE, 27));
+//        TodoItem item4 = new TodoItem("Doctor Appointment", "Meet Dr. Gonden and bring paperwork",
+//                LocalDate.of(2020, Month.SEPTEMBER, 1));
+//        TodoItem item5 = new TodoItem("Call Mom", "Need to discuss ongoing therapy sessions",
+//                LocalDate.of(2018, Month.JANUARY, 30));
+//
+//        todoItems = new ArrayList<TodoItem>();
+//        todoItems.add(item1);
+//        todoItems.add(item2);
+//        todoItems.add(item3);
+//        todoItems.add(item4);
+//        todoItems.add(item5);
+//
+//        TodoData.getInstance().setTodoItems(todoItems);
 
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
             @Override
@@ -56,7 +59,7 @@ public class Controller {
             }
         });
 
-        todoListView.getItems().setAll(todoItems);
+        todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
     }
