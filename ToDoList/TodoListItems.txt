@@ -4,3 +4,7 @@ Fill out time card	Go to work computer and fill out	06-27-2020
 Doctor Appointment	Meet Dr. Gonden and bring paperwork	09-01-2020
 Call Mom	Need to discuss ongoing therapy sessions	01-30-2018
 Bedtime	Go to sleep on time Cassie, and wake up no earlier than 8am and no later than 815am	06-17-2020
+Test Item	Test item	07-11-2020
+again	again	08-07-2021
+Coolio	This is getting somewhere	03-19-2018
+aaaaa	bbbbb	03-16-2021
