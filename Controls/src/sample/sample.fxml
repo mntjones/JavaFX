@@ -7,7 +7,13 @@
 <?import javafx.scene.image.Image?>
 
 
-
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.HBox?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
@@ -18,11 +24,39 @@
             </ImageView>
         </graphic>
     </Button>
-    <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Do Not Click the Button!">
+    <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Do Not Click the Button!!"
+            textFill="blue" WrapText="true">
+        <font>
+            <Font name="Arial italic" size="12" />
+        </font>
         <graphic>
             <ImageView>
                 <Image url="@Information24.gif" />
             </ImageView>
         </graphic>
     </Label>
+
+    <fx:define>
+        <ToggleGroup fx:id="colorToggle" />
+    </fx:define>
+
+    <RadioButton GridPane.columnIndex="2" GridPane.rowIndex="0" text="Red" toggleGroup="$colorToggle"/>
+    <RadioButton GridPane.columnIndex="3" GridPane.rowIndex="0" text="Blue"  toggleGroup="$colorToggle"
+                selected="true"/>
+    <RadioButton GridPane.columnIndex="4" GridPane.rowIndex="0" text="Green" toggleGroup="$colorToggle"/>
+
+    <VBox GridPane.columnIndex="5" GridPane.rowIndex="0">
+        <CheckBox text="Dog" />
+        <CheckBox text="Cat" />
+        <CheckBox text="Fish" />
+    </VBox>
+
+    <HBox GridPane.columnIndex="6" GridPane.rowIndex="0">
+        <ToggleButton text="Toggle" />
+        <ToggleButton text="Hello" />
+        <ToggleButton text="Goodbye" />
+    </HBox>
+
+
+
 </GridPane>
