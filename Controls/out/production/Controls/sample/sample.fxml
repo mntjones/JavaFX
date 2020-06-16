@@ -3,6 +3,26 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+
+
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+
+    <Button GridPane.columnIndex="1" GridPane.rowIndex="0" text="Click Me">
+        <graphic>
+            <ImageView>
+                <Image url="@TipOfTheDay24.gif" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Do Not Click the Button!">
+        <graphic>
+            <ImageView>
+                <Image url="@Information24.gif" />
+            </ImageView>
+        </graphic>
+    </Label>
 </GridPane>
