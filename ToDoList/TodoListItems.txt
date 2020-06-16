@@ -3,3 +3,4 @@ Fold clothes	Get clothes from dryer and start new load	06-17-2020
 Fill out time card	Go to work computer and fill out	06-27-2020
 Doctor Appointment	Meet Dr. Gonden and bring paperwork	09-01-2020
 Call Mom	Need to discuss ongoing therapy sessions	01-30-2018
+Bedtime	Go to sleep on time Cassie, and wake up no earlier than 8am and no later than 815am	06-17-2020
