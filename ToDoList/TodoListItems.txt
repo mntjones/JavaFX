@@ -8,3 +8,7 @@ long test	tempus dapibus scelerisque pellentesque id lectus nonummy sapien ligul
 new	adddddddd	06-16-2020
 ff	gg	06-21-2020
 Toolbar New	Added a new toolbar  under file	06-19-2020
+Cool icon and hover	Tooltip	12-02-2020
+Earliest	Jan 2017	01-01-2017
+June 2020	now	06-17-2020
+cc	ee	06-17-2020

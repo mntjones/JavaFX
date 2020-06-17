@@ -2,9 +2,11 @@ package com.monica.todolist;
 
 import com.monica.todolist.datamodel.TodoData;
 import com.monica.todolist.datamodel.TodoItem;
-
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,14 +17,21 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class Controller {
     private List<TodoItem> todoItems;
+    private FilteredList<TodoItem> filteredList;
+    private Predicate<TodoItem> allItems;
+    private Predicate<TodoItem> todaysItems;
+
     @FXML
     private ListView<TodoItem> todoListView;
     @FXML
@@ -33,6 +42,9 @@ public class Controller {
     private BorderPane mainBorderPane;
     @FXML
     private ContextMenu listContextMenu;
+    @FXML
+    private ToggleButton filterToggleButton;
+
 
     public void initialize() {
 
@@ -58,7 +70,32 @@ public class Controller {
             }
         });
 
-        todoListView.setItems(TodoData.getInstance().getTodoItems());
+        allItems = new Predicate<TodoItem>() {
+            @Override
+            public boolean test(TodoItem todoItem) {
+                return true;
+            }
+        };
+
+        todaysItems = new Predicate<TodoItem>() {
+            @Override
+            public boolean test(TodoItem todoItem) {
+                return (todoItem.getDeadline().equals(LocalDate.now()));
+            }
+        };
+
+        filteredList = new FilteredList<TodoItem>(TodoData.getInstance().getTodoItems(), allItems);
+
+        SortedList<TodoItem> sortedList = new SortedList<TodoItem>(filteredList,
+            new Comparator<TodoItem>() {
+                @Override
+                public int compare(TodoItem o1, TodoItem o2) {
+                    return o1.getDeadline().compareTo(o2.getDeadline());
+                }
+        });
+
+ //       todoListView.setItems(TodoData.getInstance().getTodoItems());
+        todoListView.setItems(sortedList);
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
 
@@ -146,12 +183,6 @@ public class Controller {
         itemDetailsTextArea.setText(item.getDetails());
 
         deadlineLabel.setText(item.getDeadline().toString());
-        //System.out.println("The selected item is " + item);
-//        StringBuilder sb = new StringBuilder(item.getDetails());
-//        sb.append("\n\n\n\n");
-//        sb.append("Due: ");
-//        sb.append(item.getDeadline().toString());
-//        itemDetailsTextArea.setText(sb.toString());
     }
 
     public void deleteItem(TodoItem item) {
@@ -166,4 +197,30 @@ public class Controller {
         }
     }
 
+    @FXML
+    public void handleFilterButton() {
+        TodoItem selectedItem = todoListView.getSelectionModel().getSelectedItem();
+        if(filterToggleButton.isSelected()) {
+            filteredList.setPredicate(todaysItems);
+            if(filteredList.isEmpty()) {
+                itemDetailsTextArea.clear();
+                deadlineLabel.setText("");
+            }
+            else if(filteredList.contains(selectedItem)) {
+                todoListView.getSelectionModel().select(selectedItem);
+            }
+            else {
+                todoListView.getSelectionModel().selectFirst();
+            }
+        }
+        else {
+            filteredList.setPredicate(allItems);
+            todoListView.getSelectionModel().select(selectedItem);
+        }
+    }
+
+    @FXML
+    public void handleExit() {
+        Platform.exit();
+    }
 }
