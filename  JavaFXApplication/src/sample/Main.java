@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        setUserAgentStylesheet(STYLESHEET_CASPIAN);
+ //       setUserAgentStylesheet(STYLESHEET_CASPIAN);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 600, 225));
         primaryStage.show();
@@ -26,3 +26,5 @@ public class Main extends Application {
 // 1. In-line CSS
 // 2. FXML style sheet
 // 3. Applications theme style sheet (Main)
+
+// more effects at javafx.styles.effects
