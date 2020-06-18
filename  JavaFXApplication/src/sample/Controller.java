@@ -9,6 +9,7 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.util.List;
 
 public class Controller {
 
@@ -37,12 +38,23 @@ public class Controller {
 
     @FXML
     public void handleClick() {
-    //    FileChooser fileChooser = new FileChooser();
-        DirectoryChooser dirChooser = new DirectoryChooser();
-     //   fileChooser.showOpenDialog(gridPane.getScene().getWindow());
-        File file = dirChooser.showDialog(gridPane.getScene().getWindow());
+        FileChooser fileChooser = new FileChooser();
+        //fileChooser.setTitle("Save Application File");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Text", "*.txt"),
+                new FileChooser.ExtensionFilter("All", "*.*")
+        );
+
+        List<File> file = fileChooser.showOpenMultipleDialog(gridPane.getScene().getWindow());
+        //File file = fileChooser.showOpenDialog(gridPane.getScene().getWindow());
+        // DirectoryChooser dirChooser = new DirectoryChooser();
+        //File file = dirChooser.showDialog(gridPane.getScene().getWindow());
+
         if(file != null) {
-            System.out.println(file.getPath());
+            for(int i=0; i<file.size(); i++) {
+                System.out.println(file.get(i));
+            }
+            //System.out.println(file.getPath());
         }
         else {
             System.out.println("Chooser was cancelled");
