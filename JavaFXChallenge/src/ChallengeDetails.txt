@@ -1,0 +1,22 @@
+Create a simple contacts application that has a single main window.
+
+Allows user to:
+- add a contact
+- edit a contact
+- delete a contact
+
+Display the contacts using the TableView control
+
+Needs a menu button to add, delete
+
+4 columns - first name, last name, phone number, notes
+
+load and store contacts
+
+Add code to the ContactData class provided to complete the challenge.
+
+Hints:
+1. you'll need a Contact class t store individual contacts.
+2. to get data binding to work with the TableView, you'll want to store the contact
+    information as SimpleStringProperty fields
+3. the TodoList application covers most of the code needed for this challenge
