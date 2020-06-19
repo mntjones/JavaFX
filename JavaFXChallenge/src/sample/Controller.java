@@ -1,6 +1,8 @@
 package sample;
 
 
+import javafx.fxml.FXML;
+
 public class Controller {
 
 //    private List<Contact> contacts;
@@ -13,6 +15,11 @@ public class Controller {
 //    public void initialize() {
 //
 //    }
+
+    @FXML
+    public void addNewContact() {
+
+    }
 
 
 }

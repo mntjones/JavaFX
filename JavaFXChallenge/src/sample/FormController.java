@@ -1,8 +1,6 @@
 package sample;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class FormController {
@@ -14,13 +12,13 @@ public class FormController {
     @FXML
     private TextField phoneNumberField;
     @FXML
-    private TextArea notesArea;
+    private TextField notesField;
 
     public Contact processResults() {
         String firstName =firstNameField.getText().trim();
         String lastName = lastNameField.getText().trim();
         String phoneNumber = phoneNumberField.getText().trim();
-        String notes = notesArea.getText().trim();
+        String notes = notesField.getText().trim();
 
         Contact newContact = new Contact(firstName, lastName, phoneNumber, notes);
         ContactData.getInstance().addContact(newContact);

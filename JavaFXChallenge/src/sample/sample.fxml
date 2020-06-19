@@ -12,9 +12,9 @@
     <top>
         <VBox>
             <MenuBar>
-                <Menu text="File">
+                <Menu text="Contacts">
                     <items>
-                        <MenuItem text="New" />
+                        <MenuItem text="New" onAction="#addNewContact"/>
                         <SeparatorMenuItem/>
                         <MenuItem text="Exit" />
                     </items>
