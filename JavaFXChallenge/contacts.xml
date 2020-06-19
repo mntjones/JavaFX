@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacts>
+<contact>
+	<first_name>Monica</first_name>
+	<last_name>Jones</last_name>
+	<phone_number>510-919-2761</phone_number>
+	<notes>Mommy Dearest</notes>
+</contact>
+<contact>
+	<first_name>Les</first_name>
+	<last_name>Jones</last_name>
+	<phone_number>415-935-3795</phone_number>
+	<notes>Dad</notes>
+</contact>
+<contact>
+	<first_name>Cassandra</first_name>
+	<last_name>Jones</last_name>
+	<phone_number>123-456-7890</phone_number>
+	<notes>Daughter</notes>
+</contact>
+</contacts>
