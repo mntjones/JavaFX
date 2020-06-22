@@ -14,6 +14,8 @@
                         <SeparatorMenuItem />
                         <MenuItem onAction="#editContact" text="Edit" />
                         <SeparatorMenuItem />
+                        <MenuItem onAction="#deleteContact" text="Delete" />
+                        <SeparatorMenuItem />
                         <MenuItem text="Exit" />
                     </items>
                 </Menu>
@@ -23,6 +25,9 @@
 
     <center>
         <TableView fx:id="tableView">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
             <columns>
                 <TableColumn minWidth="30.0" text="First Name">
                     <cellValueFactory>
